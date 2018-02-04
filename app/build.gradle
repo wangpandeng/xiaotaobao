@@ -1,0 +1,192 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 26
+    buildToolsVersion "25.0.3"
+
+    signingConfigs {
+        taotao {
+            storePassword '123456'
+            keyAlias 'taotao'
+            keyPassword '123456'
+            storeFile file('taobao.jks')
+        }
+    }
+    defaultConfig {
+        applicationId "com.dataoke.client"
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        signingConfig signingConfigs.taotao
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [eventBusIndex: 'com.dataoke.client.MyEventBusIndex']
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled true//true混淆，fase不混淆
+            zipAlignEnabled true //压缩
+            signingConfig signingConfigs.taotao
+            debuggable false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+
+        debug {
+            minifyEnabled false//true混淆，fase不混淆
+            zipAlignEnabled true //压缩
+            signingConfig signingConfigs.taotao
+            debuggable true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/rxjava.properties'
+    }
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+    productFlavors {
+        xiaotaobao {}
+    }
+
+    android.applicationVariants.all { variant ->
+        def file = variant.outputs[0].outputFile
+        variant.outputs[0].outputFile = new File(file.parent, "XiaoTaoBao" + "_" + defaultConfig.versionName + "-" + variant.buildType.name + ".apk")
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    // Android support
+    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    compile 'com.android.support:support-v4:26.1.0'
+    compile 'com.android.support:design:26.1.0'
+    compile 'com.android.support:appcompat-v7:26.1.0'
+    compile 'com.android.support:cardview-v7:26.1.0'
+    compile 'com.android.support:recyclerview-v7:26.1.0'
+
+//   retrofit2+ OkHttp
+    compile 'com.squareup.okhttp3:okhttp:3.9.1'
+    compile "com.squareup.okhttp3:logging-interceptor:3.9.1"
+    compile 'com.squareup.retrofit2:retrofit:2.3.0'
+    compile "com.squareup.retrofit2:converter-gson:2.3.0"
+    compile "com.squareup.retrofit2:adapter-rxjava2:2.3.0"
+
+// RxJava+RxAndroid
+    compile "io.reactivex.rxjava2:rxjava:2.1.3"
+    compile "io.reactivex.rxjava2:rxandroid:2.0.1"
+    compile "com.jakewharton.rxbinding2:rxbinding:2.0.0"
+
+    //Glide
+    compile('com.github.bumptech.glide:glide:4.5.0') {
+        exclude group: "com.android.support"
+    }
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.5.0'
+
+//    butterknife
+    compile 'com.jakewharton:butterknife:8.8.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
+
+    //permission
+//    compile 'com.tbruyelle.rxpermissions:rxpermissions:0.9.4@aar'
+
+    //logger
+    compile 'com.orhanobut:logger:2.1.1'
+
+    //leakcanary
+    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
+    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
+
+    //eventBus
+    compile 'org.greenrobot:eventbus:3.1.1'
+    annotationProcessor 'org.greenrobot:eventbus-annotation-processor:3.1.1'
+    //dex分包
+    compile 'com.android.support:multidex:1.0.1'
+
+    //动画
+//    compile('com.airbnb.android:lottie:2.5.0-beta3') {
+//        exclude group: "com.android.support"
+//    }
+
+    //lifecycles
+//    compile 'com.trello.rxlifecycle2:rxlifecycle:2.2.1'
+// If you want to bind to Android-specific lifecycles
+//    compile 'com.trello.rxlifecycle2:rxlifecycle-android:2.2.1'
+// If you want pre-written Activities and Fragments you can subclass as providers
+    compile('com.trello.rxlifecycle2:rxlifecycle-components:2.2.1') {
+        exclude group: "com.android.support"
+    }
+
+    compile 'me.yokeyword:fragmentation:1.2.4'
+
+    compile 'com.youth.banner:banner:1.4.10'
+
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.31'
+
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.4-7'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.4-7'
+
+    compile 'com.google.android:flexbox:0.3.2'
+
+//    compile (name:'SecurityGuardSDK-external-release-5.3.38',ext:'aar')
+/*==============================================================================*/
+    //fastjson
+    compile 'com.alibaba:fastjson:1.2.45'
+
+    //支付
+    compile 'com.alibaba.alipay:alipaySingle:20160825@jar'
+
+    //登陆
+    compile 'com.ali.auth.sdk:alibabauth_core:1.4.3@jar'
+    compile 'com.ali.auth.sdk:alibabauth_ui:1.4.3@aar'
+    compile 'com.ali.auth.sdk:alibabauth_ext:1.4.3@jar'
+
+    //安全基础
+    compile 'com.taobao.android:securityguardaar3:5.1.81@aar'
+
+    //Mtop网关
+    compile 'com.taobao.android:mtopsdk_allinone_open:1.2.2.4@jar'
+
+    //applink
+    compile 'com.alibaba.sdk.android:alibc_link_partner:1.1.0.0'
+
+    //UT
+    compile 'com.taobao.android:utdid4all:1.1.5.3_proguard@jar'
+    compile 'com.alibaba.mtl:app-monitor-sdk:2.5.1.3_for_bc_proguard@jar'
+
+    //联盟SDK
+    compile 'com.alimama.tunion.sdk:tuniontradesdk:0.3.2'
+
+    //电商SDK
+    compile 'com.alibaba.sdk.android:alibc_trade_common:3.1.1.206'
+    compile 'com.alibaba.sdk.android:alibc_trade_biz:3.1.1.206'
+    compile 'com.alibaba.sdk.android:alibc_trade_sdk:3.1.1.206'
+
+
+    /*--------------------------------------------------------------------*/
+    compile 'com.github.Aspsine:SwipeToLoadLayout:1.0.4'
+    compile 'cn.jzvd:jiaozivideoplayer:6.2.7'
+}

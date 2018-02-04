@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/item_hot"
+        android:title="人气" />
+
+    <item
+        android:id="@+id/item_new"
+        android:title="最新" />
+
+    <item
+        android:id="@+id/item_sale_number"
+        android:title="效率" />
+    <item
+        android:id="@+id/item_price"
+        android:title="价格" />
+</menu>

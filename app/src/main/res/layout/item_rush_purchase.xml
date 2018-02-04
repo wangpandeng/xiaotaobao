@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dp10">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="240dp">
+
+        <ImageView
+            android:id="@+id/iv_purchase_pic"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:src="@color/bg" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_gravity="right|top"
+            android:background="@drawable/xianshimiaosha"
+            android:gravity="center"
+            android:paddingBottom="@dimen/dp5"
+            android:paddingLeft="@dimen/dp15"
+            android:paddingRight="@dimen/dp15"
+            android:paddingTop="@dimen/dp5"
+            android:text="限时秒杀"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_12" />
+
+        <TextView
+            android:id="@+id/tv_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="left"
+            android:layout_marginBottom="60dp"
+            android:layout_marginRight="@dimen/dp30"
+            android:alpha="0.5"
+            android:background="@drawable/shape_bg_black"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:paddingLeft="@dimen/dp5"
+            android:paddingRight="@dimen/dp5"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_13"
+            tools:text="nifdsffffffdsfsdfsdfsdfsdfsdfsdfhao" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp5"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLines="1"
+        android:textColor="@color/colorTabText"
+        android:textSize="@dimen/text_size_13"
+        tools:text="新品|全聚德烤鸭" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp5"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:text="￥45劵后"
+            android:textColor="@color/color_red"
+            android:textSize="@dimen/text_size_15" />
+
+        <TextView
+            android:id="@+id/tv_coupon_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30dp"
+            android:layout_toRightOf="@+id/tv_price"
+            android:background="@drawable/shape_bg_less_red"
+            android:drawableLeft="@drawable/icon_coupon_detail"
+            android:gravity="center_vertical"
+            android:textSize="@dimen/text_size_13"
+            tools:text="￥18" />
+
+        <TextView
+            android:id="@+id/tv_buyer_number"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_marginLeft="30dp"
+            android:drawableLeft="@drawable/icon_people"
+            android:textSize="@dimen/text_size_14" />
+    </LinearLayout>
+
+</LinearLayout>

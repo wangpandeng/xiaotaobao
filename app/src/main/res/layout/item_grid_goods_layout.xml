@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@color/colorWhite"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="180dp">
+
+        <ImageView
+            android:id="@+id/iv_icon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/colorWhite" />
+
+        <TextView
+            android:id="@+id/tv_video"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right|top"
+            android:layout_marginRight="@dimen/dp10"
+            android:layout_marginTop="@dimen/dp5"
+            android:alpha="0.5"
+            android:background="@drawable/shape_bg_black_round_solid_5"
+            android:paddingLeft="@dimen/dp8"
+            android:paddingRight="@dimen/dp8"
+            android:text="视频"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_13" />
+
+        <TextView
+            android:id="@+id/tv_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:background="@drawable/shape_bg_red"
+            android:paddingBottom="@dimen/dp2"
+            android:paddingEnd="@dimen/dp2"
+            android:paddingLeft="@dimen/dp5"
+            android:paddingRight="@dimen/dp5"
+            android:text="劵￥10"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_13" />
+
+        <TextView
+            android:id="@+id/tv_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#5bc38d"
+            android:gravity="center"
+            android:padding="@dimen/dp3"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_13"
+            android:visibility="gone"
+            tools:text="TOP\n1" />
+
+        <TextView
+            android:id="@+id/tv_notice"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_gravity="center"
+            android:alpha="0.4"
+            android:background="@drawable/shape_bg_black_round"
+            android:gravity="center"
+            android:text="即将开始"
+            android:textColor="@android:color/white"
+            android:textSize="@dimen/sp_14"
+            android:visibility="gone" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp5"
+        android:ellipsize="end"
+        android:gravity="left"
+        android:maxLines="1"
+        android:text="新品|全聚德烤鸭"
+        android:textColor="@color/colorTabText"
+        android:textSize="@dimen/text_size_13" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/dp10"
+        android:layout_marginLeft="@dimen/dp10"
+        android:layout_marginRight="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp5"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/tv_coupon_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:gravity="center_vertical"
+            android:text="￥45劵后"
+            android:textColor="@color/color_red"
+            android:textSize="@dimen/text_size_15" />
+
+        <TextView
+            android:id="@+id/tv_sell_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+            android:text="销量100"
+            android:textSize="@dimen/dp12" />
+    </RelativeLayout>
+</LinearLayout>

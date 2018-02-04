@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true"
+    android:gravity="center_vertical"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <cn.jzvd.JZVideoPlayerStandard
+                android:id="@+id/videoplayer"
+                android:layout_width="match_parent"
+                android:layout_height="360dp" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:paddingLeft="@dimen/dp12"
+                android:paddingRight="@dimen/dp12"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_16"
+                tools:text="fsdjdkljfklsdjfklsdjkl" />
+
+            <TextView
+                android:id="@+id/tv_description"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:paddingLeft="@dimen/dp12"
+                android:paddingRight="@dimen/dp12"
+                android:textColor="@color/color_red"
+                android:textSize="@dimen/text_size_13"
+                tools:text="fjdsklfjsdkljfkldsjfkldsjlk" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp12"
+                android:gravity="center_vertical"
+                android:paddingLeft="@dimen/dp12"
+                android:paddingRight="@dimen/dp12">
+
+                <TextView
+                    android:id="@+id/tv_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:textColor="@color/color_red"
+                    android:textSize="@dimen/text_size_16"
+                    tools:text="fsdjiflj" />
+
+                <TextView
+                    android:id="@+id/tv_coupon_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="30dp"
+                    android:layout_toRightOf="@+id/tv_price"
+                    android:background="@drawable/shape_bg_less_red"
+                    android:drawableLeft="@drawable/icon_coupon_detail"
+                    android:gravity="center_vertical"
+                    android:textSize="@dimen/text_size_13"
+                    tools:text="￥18" />
+
+                <TextView
+                    android:id="@+id/tv_buyer_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:drawableLeft="@drawable/icon_people"
+                    android:textSize="@dimen/text_size_14" />
+            </RelativeLayout>
+
+            <com.google.android.flexbox.FlexboxLayout
+                android:id="@+id/fbl_tag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp12"
+                android:paddingRight="@dimen/dp12"
+                app:alignContent="stretch"
+                app:alignItems="stretch"
+                app:flexWrap="wrap">
+
+            </com.google.android.flexbox.FlexboxLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp5"
+                android:background="@color/colorPageBg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/dp10"
+                android:gravity="center"
+                android:paddingBottom="@dimen/dp10"
+                android:paddingTop="@dimen/dp10"
+                android:text="精品推荐"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_13" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView_more"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <include layout="@layout/title_top_layout" />
+
+
+    <TextView
+        android:id="@+id/tv_buy"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp40"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/dp5"
+        android:background="@drawable/selector_buy"
+        android:gravity="center"
+        android:text="领券购买"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/text_size_18"
+        android:visibility="visible" />
+</FrameLayout>

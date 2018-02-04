@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/ll_main_parent"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:background="@color/colorWhite"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:paddingLeft="@dimen/dp12"
+        android:paddingRight="@dimen/dp12">
+
+        <ImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="@dimen/dp12"
+            android:src="@drawable/icon_title_back_black" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+            android:layout_weight="1"
+            android:background="@drawable/shape_bg_gray_round_solid_5"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:id="@+id/iv_search"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:src="@drawable/icon_search" />
+
+            <EditText
+                android:id="@+id/et_search"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/dp30"
+                android:layout_toRightOf="@+id/iv_search"
+                android:background="#eaeaea"
+                android:ellipsize="end"
+                android:hint="口红"
+                android:maxLines="1"
+                android:padding="0dp"
+                android:textSize="@dimen/text_size_13" />
+
+            <ImageView
+                android:id="@+id/iv_clear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:src="@drawable/icon_search_clear"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/tv_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/dp12"
+            android:text="搜索"
+            android:visibility="visible" />
+
+        <CheckBox
+            android:id="@+id/cb_show_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/selector_show_type"
+            android:checked="true"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <include layout="@layout/view_horizontal_line" />
+
+    <LinearLayout
+        android:id="@+id/ll_search_history_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/dp5"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingTop="@dimen/dp10"
+            android:text="热门搜索"
+            android:textColor="#9c9c9c"
+            android:textSize="@dimen/sp_16" />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/fbl_hot_search_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp5"
+            android:paddingRight="@dimen/dp5"
+            app:alignContent="stretch"
+            app:alignItems="stretch"
+            app:flexWrap="wrap">
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp10"
+            android:paddingBottom="@dimen/dp5"
+            android:paddingLeft="@dimen/dp10"
+            android:paddingTop="@dimen/dp10"
+            android:text="热门搜索"
+            android:textColor="#9c9c9c"
+            android:textSize="@dimen/sp_16" />
+
+        <com.google.android.flexbox.FlexboxLayout
+            android:id="@+id/fbl_history_tag"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp5"
+            android:paddingRight="@dimen/dp5"
+            app:alignContent="stretch"
+            app:alignItems="stretch"
+            app:flexWrap="wrap">
+
+
+        </com.google.android.flexbox.FlexboxLayout>
+
+        <TextView
+            android:id="@+id/tv_clear_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:drawableLeft="@drawable/icon_search_delete"
+            android:drawablePadding="@dimen/dp10"
+            android:text="清除搜索历史"
+            android:textColor="#a8a7a7" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/ll_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="blocksDescendants"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+
+        <RadioGroup
+            android:id="@+id/radioGroup"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp45"
+            android:background="@color/colorWhite"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/rb_hot"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:checked="true"
+                android:gravity="center"
+                android:text="人气"
+                android:textColor="@color/selector_bottom_item_color"
+                android:textSize="@dimen/text_size_14" />
+
+            <RadioButton
+                android:id="@+id/rb_new"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="最新"
+                android:textColor="@color/selector_bottom_item_color"
+                android:textSize="@dimen/text_size_14" />
+
+            <RadioButton
+                android:id="@+id/rb_sale_number"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="销量"
+                android:textColor="@color/selector_bottom_item_color"
+                android:textSize="@dimen/text_size_14" />
+
+            <RadioButton
+                android:id="@+id/rb_price"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:button="@null"
+                android:gravity="center"
+                android:text="价格"
+                android:textColor="@color/selector_bottom_item_color"
+                android:textSize="@dimen/text_size_14" />
+        </RadioGroup>
+
+        <include layout="@layout/view_horizontal_line" />
+
+        <com.scwang.smartrefresh.layout.SmartRefreshLayout
+            android:id="@+id/refreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.scwang.smartrefresh.layout.header.ClassicsHeader
+                android:id="@+id/refreshHeaderView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:srlClassicsSpinnerStyle="FixedBehind"
+                app:srlDrawableArrowSize="20dp"
+                app:srlDrawableMarginRight="20dp"
+                app:srlDrawableProgress="@drawable/loading_spinner"
+                app:srlDrawableProgressSize="20dp"
+                app:srlEnableLastTime="false"
+                app:srlFinishDuration="500"
+                app:srlTextSizeTime="10dp"
+                app:srlTextSizeTitle="16sp"
+                app:srlTextTimeMarginTop="2dp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/recyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite" />
+
+            <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+    </LinearLayout>
+
+
+</LinearLayout>

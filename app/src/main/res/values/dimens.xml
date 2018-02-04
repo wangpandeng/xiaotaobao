@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="text_size_10">10sp</dimen>
+    <dimen name="text_size_11">11sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_13">13sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_15">15sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_17">17sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_22">22sp</dimen>
+    <dimen name="text_size_23">23sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_25">25sp</dimen>
+
+
+    <dimen name="px1">1px</dimen>
+
+    <dimen name="dp1">1dp</dimen>
+    <dimen name="dp2">2dp</dimen>
+    <dimen name="dp3">3dp</dimen>
+    <dimen name="dp4">4dp</dimen>
+    <dimen name="dp5">5dp</dimen>
+    <dimen name="dp6">6dp</dimen>
+    <dimen name="dp8">8dp</dimen>
+    <dimen name="dp10">10dp</dimen>
+    <dimen name="dp12">12dp</dimen>
+    <dimen name="dp15">15dp</dimen>
+    <dimen name="dp20">20dp</dimen>
+    <dimen name="dp25">25dp</dimen>
+    <dimen name="dp30">30dp</dimen>
+    <dimen name="dp35">35dp</dimen>
+    <dimen name="dp40">40dp</dimen>
+    <dimen name="dp50">50dp</dimen>
+    <dimen name="dp60">60dp</dimen>
+    <dimen name="dp70">70dp</dimen>
+    <dimen name="dp75">75dp</dimen>
+    <dimen name="dp120">120dp</dimen>
+
+    <!-- loading-dialog-->
+    <dimen name="spot_size">6dp</dimen>
+    <dimen name="progress_margin">24dp</dimen>
+    <dimen name="progress_width">200dp</dimen>
+    <dimen name="title_bar_height">30dp</dimen>
+    <dimen name="dp55">55dp</dimen>
+    <dimen name="dp54">54dp</dimen>
+    <dimen name="dp100">100dp</dimen>
+    <dimen name="dp45">45dp</dimen>
+    <dimen name="dp7">7dp</dimen>
+    <dimen name="dp80">80dp</dimen>
+</resources>

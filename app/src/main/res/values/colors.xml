@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="bg">#F0F0F0</color>
+    <color name="txt_color">#48495F</color>
+
+    <!--正文文字颜色-->
+    <color name="colorContent">#ff333333</color>
+    <!--tab标签栏文字的颜色-->
+    <color name="colorTabText">#585858</color>
+
+    <!--选择分类按下颜色-->
+    <color name="colorChoosePress">#DDD</color>
+
+    <color name="colorTitle">#666</color>
+    <!--首页item文字颜色-->
+    <color name="colorSubtitle">#999</color>
+
+    <color name="colorWhite">#ffffff</color>
+    <color name="titleWhite">#ffffffff</color>
+
+    <!--分割线-->
+    <color name="colorLine">#EBEBEB</color>
+
+    <!--页面背景的颜色-->
+    <color name="colorPageBg">#f2f4f5</color>
+
+    <!--item的水波纹颜色-->
+    <color name="itemBackground">#DD7D7D7D</color>
+    <color name="md_grey_700">#616161</color>
+    <!--item的分割线-->
+    <color name="colorLineItem">#FFDDDDDD</color>
+
+    <!--item的5.0一下版本选择器颜色-->
+    <color name="itemLowBackground">#d9d9d9</color>
+
+    <!--没有水波纹效果的颜色选择器-->
+    <color name="colorItemBackground">#d9d9d9</color>
+    <color name="color_less_red">#ff7a6e</color>
+    <color name="color_red">#ff4d4d</color>
+    <color name="font_public_gray">#999999</color>
+    <color name="line_color">#dddddd</color>
+    <color name="color_font">#737373</color>
+    <color name="color_font_free_delivery">#ca7c8c</color>
+    <color name="divide_line">#f8f8f8</color>
+    <color name="black">#333333</color>
+    <color name="default_bg">#faf8f6</color>
+    <color name="tag_color">#71727f</color>
+    <string name="font_less_gray">#c5c5c5</string>
+
+</resources>

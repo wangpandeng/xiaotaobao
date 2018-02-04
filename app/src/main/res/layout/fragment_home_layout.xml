@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appBarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        app:elevation="0dp">
+
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolBar"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_scrollFlags="scroll|enterAlways">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp"
+                android:gravity="center"
+                android:text="小淘宝"
+                android:textColor="@color/color_red"
+                android:textSize="24sp" />
+
+            <FrameLayout
+                android:id="@+id/fl_search"
+                android:layout_width="match_parent"
+                android:layout_height="30dp"
+                android:layout_margin="8dp"
+                android:background="@drawable/shape_bg_gray_round_solid_5">
+
+                <TextView
+                    android:id="@+id/tv_search_text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:drawableLeft="@drawable/icon_search"
+                    android:drawablePadding="5dp"
+                    android:gravity="center"
+                    android:text="口红"
+                    android:textColor="#9a9a9a" />
+            </FrameLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <include layout="@layout/view_horizontal_line" />
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tabLayout"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/colorWhite"
+            app:tabBackground="@color/colorWhite"
+            app:tabIndicatorColor="@color/color_less_red"
+            app:tabMode="scrollable"
+            app:tabSelectedTextColor="@color/color_red"
+            app:tabTextAppearance="@style/TabLayoutTextStyle" />
+
+        <include layout="@layout/view_horizontal_line" />
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/vp_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+</android.support.design.widget.CoordinatorLayout>

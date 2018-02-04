@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.scwang.smartrefresh.layout.SmartRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:banner="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/refreshLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.scwang.smartrefresh.layout.header.ClassicsHeader
+        android:id="@+id/refreshHeaderView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        banner:srlClassicsSpinnerStyle="FixedBehind"
+        banner:srlDrawableArrowSize="20dp"
+        banner:srlDrawableMarginRight="20dp"
+        banner:srlDrawableProgress="@drawable/loading_spinner"
+        banner:srlDrawableProgressSize="20dp"
+        banner:srlEnableLastTime="false"
+        banner:srlFinishDuration="500"
+        banner:srlTextSizeTime="10dp"
+        banner:srlTextSizeTitle="16sp"
+        banner:srlTextTimeMarginTop="2dp" />
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/colorWhite"
+        android:focusable="true"
+        android:focusableInTouchMode="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/default_bg"
+            android:orientation="vertical">
+
+            <com.youth.banner.Banner
+                android:id="@+id/banner_view"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:background="@color/colorWhite"
+                android:clipToPadding="true"
+                android:gravity="center_vertical"
+                banner:delay_time="3000"
+                banner:image_scale_type="fit_xy"
+                banner:indicator_drawable_selected="@drawable/dot_selected"
+                banner:indicator_drawable_unselected="@drawable/dot_normal"
+                banner:indicator_height="@dimen/dp6"
+                banner:indicator_margin="@dimen/dp2"
+                banner:indicator_width="@dimen/dp6"
+                banner:is_auto_play="true" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_case"
+                android:layout_width="match_parent"
+                android:layout_height="90dp"
+                android:background="@color/colorWhite" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp6"
+                android:background="@color/bg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:drawableLeft="@drawable/hot"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/dp5"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10"
+                android:paddingTop="@dimen/dp5"
+                android:text="热卖新品" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_hot_commodity"
+                android:layout_width="match_parent"
+                android:layout_height="155dp"
+                android:background="@color/colorWhite" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/dp6"
+                android:background="@color/bg" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorWhite"
+                android:gravity="center_vertical"
+                android:paddingBottom="@dimen/dp5"
+                android:paddingLeft="@dimen/dp10"
+                android:paddingRight="@dimen/dp10"
+                android:paddingTop="@dimen/dp5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:drawableLeft="@drawable/thumbs_up"
+                    android:text="领券优惠直播" />
+
+                <TextView
+                    android:id="@+id/tv_commodity_amount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="独家优惠10000款" />
+            </RelativeLayout>
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_main_commodity"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorWhite" />
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+</com.scwang.smartrefresh.layout.SmartRefreshLayout>
+

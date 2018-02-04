@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/fl_content_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusable="true"
+    android:focusableInTouchMode="true">
+
+    <com.scwang.smartrefresh.layout.SmartRefreshLayout
+        android:id="@+id/refreshLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.scwang.smartrefresh.layout.header.ClassicsHeader
+            android:id="@+id/refreshHeaderView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srlClassicsSpinnerStyle="FixedBehind"
+            app:srlDrawableArrowSize="20dp"
+            app:srlDrawableMarginRight="20dp"
+            app:srlDrawableProgress="@drawable/loading_spinner"
+            app:srlDrawableProgressSize="20dp"
+            app:srlEnableLastTime="false"
+            app:srlFinishDuration="500"
+            app:srlTextSizeTime="10dp"
+            app:srlTextSizeTitle="16sp"
+            app:srlTextTimeMarginTop="2dp" />
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/nestedScrollView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@color/default_bg">
+
+            <LinearLayout
+                android:id="@+id/ll_main"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:descendantFocusability="blocksDescendants"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/iv_category"
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:src="@color/colorWhite" />
+
+                <RadioGroup
+                    android:id="@+id/radioGroup"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dp45"
+                    android:background="@color/colorWhite"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/rb_hot"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:checked="true"
+                        android:gravity="center"
+                        android:text="人气"
+                        android:textColor="@color/selector_bottom_item_color"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <RadioButton
+                        android:id="@+id/rb_new"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="最新"
+                        android:textColor="@color/selector_bottom_item_color"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <RadioButton
+                        android:id="@+id/rb_sale_number"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="销量"
+                        android:textColor="@color/selector_bottom_item_color"
+                        android:textSize="@dimen/text_size_14" />
+
+                    <RadioButton
+                        android:id="@+id/rb_price"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:button="@null"
+                        android:gravity="center"
+                        android:text="价格"
+                        android:textColor="@color/selector_bottom_item_color"
+                        android:textSize="@dimen/text_size_14" />
+                </RadioGroup>
+
+                <include layout="@layout/view_horizontal_line" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite" />
+            </LinearLayout>
+        </android.support.v4.widget.NestedScrollView>
+
+        <com.scwang.smartrefresh.layout.footer.ClassicsFooter
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.scwang.smartrefresh.layout.SmartRefreshLayout>
+
+    <RadioGroup
+        android:id="@+id/radioGroup_top"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp45"
+        android:background="@color/colorWhite"
+        android:orientation="horizontal"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/rb_hot_top"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:text="人气"
+            android:textColor="@color/selector_bottom_item_color"
+            android:textSize="@dimen/text_size_14" />
+
+        <RadioButton
+            android:id="@+id/rb_new_top"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="最新"
+            android:textColor="@color/selector_bottom_item_color"
+            android:textSize="@dimen/text_size_14" />
+
+        <RadioButton
+            android:id="@+id/rb_sale_number_top"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="销量"
+            android:textColor="@color/selector_bottom_item_color"
+            android:textSize="@dimen/text_size_14" />
+
+        <RadioButton
+            android:id="@+id/rb_price_top"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:button="@null"
+            android:gravity="center"
+            android:text="价格"
+            android:textColor="@color/selector_bottom_item_color"
+            android:textSize="@dimen/text_size_14" />
+    </RadioGroup>
+</FrameLayout>

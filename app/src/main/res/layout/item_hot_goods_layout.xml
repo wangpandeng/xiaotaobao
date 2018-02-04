@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="120dp"
+    android:layout_height="155dp"
+    android:background="@color/colorWhite"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/dp5">
+
+    <ImageView
+        android:id="@+id/iv_icon"
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:src="@drawable/ic_default_bg" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:text="nihaoceshi"
+        android:textColor="@color/color_font"
+        android:textSize="@dimen/text_size_11" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/dp3"
+        android:gravity="center_vertical"
+        android:paddingLeft="@dimen/dp3"
+        android:paddingRight="@dimen/dp3">
+
+        <TextView
+            android:id="@+id/tv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:text="￥100"
+            android:textSize="@dimen/text_size_14" />
+
+        <TextView
+            android:id="@+id/tv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/shape_bg_gray"
+            android:paddingLeft="@dimen/dp3"
+            android:paddingRight="@dimen/dp3"
+            android:text="包邮"
+            android:textColor="@color/color_font_free_delivery"
+            android:textSize="@dimen/text_size_11" />
+    </RelativeLayout>
+</LinearLayout>
