@@ -148,6 +148,9 @@ public class NewGoodsFragment extends BaseFragment<NewCommodityPresenter> implem
                 DetailActivity.startDetailActivity(getContext(), commonGoods.goods_id);
             }
         });
+
+        smartRefreshLayout.setEnableNestedScroll(false);
+        nestedScrollView.setNestedScrollingEnabled(true);
     }
 
 

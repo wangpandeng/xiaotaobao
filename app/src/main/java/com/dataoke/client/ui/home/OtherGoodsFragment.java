@@ -201,6 +201,8 @@ public class OtherGoodsFragment extends BaseFragment<OtherCommodityPresenter> im
                 }
             }
         });
+        nestedScrollView.setNestedScrollingEnabled(true);
+        refreshLayout.setEnableNestedScroll(false);
     }
 
     @Override
