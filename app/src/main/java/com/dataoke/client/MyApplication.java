@@ -1,7 +1,9 @@
 package com.dataoke.client;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.multidex.MultiDex;
 
@@ -19,14 +21,16 @@ import com.orhanobut.logger.Logger;
 import com.orhanobut.logger.PrettyFormatStrategy;
 import com.squareup.leakcanary.LeakCanary;
 
+import java.util.LinkedList;
+
 /**
  * @author ddllxy
  * @date 2018/1/18 0018
  */
 
-public class MyApplication extends Application {
+public class MyApplication extends Application implements Application.ActivityLifecycleCallbacks {
     public static MyApplication sApplication;
-
+    public static LinkedList<Activity> activities;
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
@@ -41,7 +45,7 @@ public class MyApplication extends Application {
 //        EventBus.builder().addIndex(new MyEventBusIndex()).installDefaultEventBus();
         setupLeakCanary();
         initLogger();
-
+        activities = new LinkedList<>();
         LoadSir.newBuilder()
                 .addCallback(new LoadingCallback())
                 .addCallback(new TimeoutCallback())
@@ -49,13 +53,6 @@ public class MyApplication extends Application {
                 .addCallback(new EmptyCallback())
                 .setDefaultCallback(LoadingCallback.class)
                 .commit();
-        //初始化
-//        try {
-//            SecurityInit.Initialize(getApplicationContext());
-//        } catch (JAQException e) {
-//            LogUtil.e("aliSecurity", "errorCode =" + e.getErrorCode());
-//        }
-
         AlibcTradeSDK.asyncInit(this, new AlibcTradeInitCallback() {
             @Override
             public void onSuccess() {
@@ -106,4 +103,43 @@ public class MyApplication extends Application {
                 .build());
     }
 
+    @Override
+    public void onActivityCreated(Activity activity, Bundle savedInstanceState) {
+        activities.add(activity);
+    }
+
+    @Override
+    public void onActivityStarted(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityResumed(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityPaused(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivityStopped(Activity activity) {
+
+    }
+
+    @Override
+    public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
+
+    }
+
+    @Override
+    public void onActivityDestroyed(Activity activity) {
+        activities.remove(activity);
+    }
+    @Override
+    public void onTerminate() {
+        super.onTerminate();
+        unregisterActivityLifecycleCallbacks(this);
+    }
 }

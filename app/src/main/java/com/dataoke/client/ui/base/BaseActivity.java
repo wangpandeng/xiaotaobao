@@ -1,14 +1,17 @@
 package com.dataoke.client.ui.base;
 
+import android.content.Context;
 import android.content.pm.ActivityInfo;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.support.annotation.Nullable;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
-import android.widget.ImageView;
+import android.view.inputmethod.InputMethodManager;
 
 import com.dataoke.client.R;
+import com.dataoke.client.utils.BaseHandler;
 import com.dataoke.client.utils.StatusBarUtil;
 import com.dataoke.client.utils.ToastUtil;
 import com.dataoke.client.utils.load.LoadService;
@@ -17,7 +20,6 @@ import com.dataoke.client.utils.load.callback.LoadingCallback;
 import com.dataoke.client.utils.load.callback.NoNetCallBack;
 import com.trello.rxlifecycle2.LifecycleTransformer;
 
-import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
@@ -30,9 +32,12 @@ public abstract class BaseActivity<P extends BasePresenter> extends BaseSupportA
     private Unbinder unbinder;
     public P mPresenter;
     protected LoadService mBaseLoadService;
+    protected CommonHandler mHandler;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        mHandler = new CommonHandler(this);
         //baseActivity统一设置竖直屏幕
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(getLayoutId());
@@ -70,6 +75,16 @@ public abstract class BaseActivity<P extends BasePresenter> extends BaseSupportA
         StatusBarUtil.setColor(this, ContextCompat.getColor(this, R.color.colorPrimary));
     }
 
+    @Override
+    public void onBackPressedSupport() {
+        View view = getWindow().peekDecorView();
+        if (view != null) {
+            InputMethodManager inputMethodManager = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            inputMethodManager.hideSoftInputFromWindow(view.getWindowToken(), 0);
+        }
+        super.onBackPressedSupport();
+    }
+
     public abstract int getLayoutId();
 
     @Override
@@ -92,7 +107,7 @@ public abstract class BaseActivity<P extends BasePresenter> extends BaseSupportA
                 public void run() {
                     mBaseLoadService.showSuccess();
                 }
-            },1000);
+            }, 1000);
         }
     }
 
@@ -118,5 +133,21 @@ public abstract class BaseActivity<P extends BasePresenter> extends BaseSupportA
     @Override
     public <T> LifecycleTransformer<T> bindToLife() {
         return null;
+    }
+
+    protected static class CommonHandler extends BaseHandler<BaseActivity> {
+
+        public CommonHandler(BaseActivity reference) {
+            super(reference);
+        }
+
+        @Override
+        protected void handleMessage(BaseActivity reference, Message msg) {
+            reference.handleMessage(reference, msg);
+        }
+    }
+
+    protected void handleMessage(BaseActivity reference, Message msg) {
+
     }
 }

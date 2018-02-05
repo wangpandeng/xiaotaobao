@@ -19,24 +19,8 @@
     </style>
 
 
-    <!-- 公用的Dialog样式 带有动画-->
-    <style name="PublicDialogFullScreenStyle" parent="@android:style/Theme.Dialog">
-        <!-- 是否有边框 -->
-        <item name="android:windowFrame">@null</item>
-        <!--满屏-->
+    <style name="SplashFullScreen" parent="AppTheme">
         <item name="android:windowFullscreen">true</item>
-        <!--半透明-->
-        <item name="android:windowIsTranslucent">true</item>
-
-        <!--是否在悬浮Activity之上-->
-        <item name="android:windowIsFloating">true</item>
-        <!--是否覆盖-->
-        <item name="android:windowContentOverlay">@null</item>
-        <!--//背景是否模糊-->
-        <item name="android:backgroundDimEnabled">true</item>
-        <!--背景颜色-->
-        <item name="android:windowBackground">@android:color/transparent</item>
-        <!--点击外面消失-->
-        <item name="android:windowCloseOnTouchOutside">true</item>
+        <item name="android:windowBackground">@drawable/welcome</item>
     </style>
 </resources>

@@ -21,7 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:replace="android:allowBackup">
-        <activity android:name="com.dataoke.client.ui.MainActivity">
+        <activity
+            android:name="com.dataoke.client.ui.SplashActivity"
+            android:theme="@style/SplashFullScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,6 +34,9 @@
             android:name=".ui.detail.DetailActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
             android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.MainActivity"
+            android:launchMode="singleTask" />
         <activity android:name=".ui.home.SearchActivity" />
         <activity android:name=".ui.home.RushPurchaseActivity" />
         <activity android:name=".ui.home.RecommendActivity" />

@@ -1,19 +1,20 @@
 package com.dataoke.client.utils;
 
-import android.app.Activity;
 import android.support.v4.content.ContextCompat;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.dataoke.client.R;
+import com.dataoke.client.ui.base.BaseActivity;
 
 /**
- * Created by wpd on 2018/2/3.
+ * @author ddllxy
+ * @date 2018/2/3
  */
 
 public class TitleUtil {
-    public static void setTitle(Activity activity, String title) {
+    public static void setTitle(BaseActivity activity, String title) {
         if (activity == null) {
             throw new NullPointerException("activity is null");
         }
@@ -23,7 +24,7 @@ public class TitleUtil {
         }
     }
 
-    public static void setTitleColor(Activity activity, int colorId) {
+    public static void setTitleColor(BaseActivity activity, int colorId) {
         if (activity == null) {
             throw new NullPointerException("activity is null");
         }
@@ -33,17 +34,17 @@ public class TitleUtil {
         }
     }
 
-    public static void setTitleBackListener(Activity activity) {
+    public static void setTitleBackListener(BaseActivity activity) {
         if (activity == null) {
             throw new NullPointerException("activity is null");
         }
         ImageView ivBack = activity.findViewById(R.id.iv_back);
         if (ivBack != null) {
-            ivBack.setOnClickListener(view -> activity.onBackPressed());
+            ivBack.setOnClickListener(view -> activity.onBackPressedSupport());
         }
     }
 
-    public static void setRightImageVisible(Activity activity, boolean isShow) {
+    public static void setRightImageVisible(BaseActivity activity, boolean isShow) {
         if (activity == null) {
             throw new NullPointerException("activity is null");
         }
@@ -53,7 +54,7 @@ public class TitleUtil {
         }
     }
 
-    public static void setDividerLineVisible(Activity activity, boolean isShow) {
+    public static void setDividerLineVisible(BaseActivity activity, boolean isShow) {
         if (activity == null) {
             throw new NullPointerException("activity is null");
         }
