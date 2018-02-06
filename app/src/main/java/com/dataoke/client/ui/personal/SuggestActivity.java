@@ -1,5 +1,7 @@
 package com.dataoke.client.ui.personal;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.widget.EditText;
@@ -10,7 +12,6 @@ import com.dataoke.client.ui.base.BaseActivity;
 import com.dataoke.client.ui.base.BasePresenter;
 
 import butterknife.BindView;
-import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
@@ -25,6 +26,11 @@ public class SuggestActivity extends BaseActivity {
     EditText etContent;
     @BindView(R.id.tv_submit)
     TextView tvSubmit;
+
+    public static void startSuggestActivity(Context context) {
+        context.startActivity(new Intent(context, SuggestActivity.class));
+    }
+
 
     @NonNull
     @Override
@@ -45,5 +51,7 @@ public class SuggestActivity extends BaseActivity {
 
     @OnClick(R.id.tv_submit)
     public void onViewClicked() {
+        showToast("提交成功");
+        finish();
     }
 }

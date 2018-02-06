@@ -75,6 +75,7 @@ public class PersonalFragment extends BaseFragment<BasePresenter> {
                 HistoryActivity.startHistoryActivity(getContext());
                 break;
             case R.id.tv_fankui:
+                SuggestActivity.startSuggestActivity(getContext());
                 break;
             case R.id.tv_service:
                 ServiceActivity.startServiceActivity(getContext());

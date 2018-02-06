@@ -45,6 +45,7 @@
         <activity android:name=".ui.home.NoticeActivity" />
         <activity android:name=".ui.personal.ServiceActivity" />
         <activity android:name=".ui.personal.HistoryActivity" />
+        <activity android:name=".ui.personal.SuggestActivity" />
     </application>
 
 </manifest>
