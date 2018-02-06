@@ -54,6 +54,17 @@ public class TitleUtil {
         }
     }
 
+    public static void setRightImage(BaseActivity activity, int resId) {
+        if (activity == null) {
+            throw new NullPointerException("activity is null");
+        }
+        ImageView imageRight = activity.findViewById(R.id.iv_right);
+        if (imageRight != null) {
+            imageRight.setVisibility(View.VISIBLE);
+            imageRight.setImageResource(resId);
+        }
+    }
+
     public static void setDividerLineVisible(BaseActivity activity, boolean isShow) {
         if (activity == null) {
             throw new NullPointerException("activity is null");

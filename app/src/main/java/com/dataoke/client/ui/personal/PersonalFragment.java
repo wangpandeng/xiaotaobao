@@ -9,7 +9,7 @@ import com.dataoke.client.R;
 import com.dataoke.client.ui.base.BaseFragment;
 import com.dataoke.client.ui.base.BasePresenter;
 import com.dataoke.client.utils.ALibcUtil;
-import com.dataoke.client.utils.ToastUtil;
+import com.dataoke.client.utils.ShareUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -72,17 +72,21 @@ public class PersonalFragment extends BaseFragment<BasePresenter> {
                 ALibcUtil.showCart(getActivity());
                 break;
             case R.id.tv_mine_foot:
+                HistoryActivity.startHistoryActivity(getContext());
                 break;
             case R.id.tv_fankui:
                 break;
             case R.id.tv_service:
+                ServiceActivity.startServiceActivity(getContext());
                 break;
             case R.id.tv_clear_cache:
+                showToast("清空缓存成功");
                 break;
             case R.id.tv_share:
+                ShareUtil.shareText(getContext(), "分享给", "小淘宝下载地址：www.baidu.com");
                 break;
             case R.id.tv_update:
-                ToastUtil.show("已经是最高版本了");
+                showToast("已经是最高版本了");
                 break;
             default:
         }

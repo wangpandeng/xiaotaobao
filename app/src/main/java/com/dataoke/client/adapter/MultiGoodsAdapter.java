@@ -1,6 +1,7 @@
 package com.dataoke.client.adapter;
 
 import android.content.Context;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.view.LayoutInflater;
@@ -27,6 +28,7 @@ public class MultiGoodsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     private List<CommonGoodsResponse.CommonGoods> list;
 
     private Context mContext;
+    private OnItemClickListener mOnItemClickListener;
 
     public MultiGoodsAdapter(List<CommonGoodsResponse.CommonGoods> list, Context context) {
         this.list = list;
@@ -36,6 +38,26 @@ public class MultiGoodsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     public void addData(List<CommonGoodsResponse.CommonGoods> addData) {
         list.addAll(addData);
         notifyDataSetChanged();
+    }
+
+    public void setNewData(List<CommonGoodsResponse.CommonGoods> list) {
+        this.list = list;
+        notifyDataSetChanged();
+    }
+
+    public void setOnItemClick(@Nullable OnItemClickListener listener) {
+        this.mOnItemClickListener = listener;
+    }
+
+    public interface OnItemClickListener {
+
+        /**
+         * Callback method to be invoked when an item in this RecyclerView has
+         * been clicked.
+         *
+         * @param position The position of the view in the adapter.
+         */
+        void onItemClick(View itemView, int position, CommonGoodsResponse.CommonGoods itemData);
     }
 
     private int itemType;
@@ -59,6 +81,8 @@ public class MultiGoodsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
         } else {
             itemView = from.inflate(R.layout.item_grid_goods_layout, parent, false);
         }
+
+
         return new BaseViewHolder(itemView);
     }
 
@@ -70,6 +94,15 @@ public class MultiGoodsAdapter extends RecyclerView.Adapter<BaseViewHolder> {
     @Override
     public void onBindViewHolder(BaseViewHolder helper, int position) {
         CommonGoodsResponse.CommonGoods item = list.get(position);
+
+        View itemView = helper.getConvertView();
+        itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mOnItemClickListener.onItemClick(itemView, position, item);
+            }
+        });
+
         if (itemType == LINEAR_ITEM_TYPE) {
             ImageView ivGoodsPic = helper.getView(R.id.iv_goods_pic);
             Glide.with(mContext).load(item.image).into(ivGoodsPic);

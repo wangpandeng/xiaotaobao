@@ -11,8 +11,12 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Spannable;
 import android.view.Gravity;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -20,19 +24,26 @@ import com.bumptech.glide.Glide;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.dataoke.client.R;
 import com.dataoke.client.adapter.MainGoodsAdapter;
+import com.dataoke.client.adapter.PopWindowAdapter;
 import com.dataoke.client.model.response.CommonGoodsResponse;
 import com.dataoke.client.model.response.DetailResponse;
+import com.dataoke.client.ui.MainActivity;
 import com.dataoke.client.ui.base.BaseActivity;
 import com.dataoke.client.ui.base.BasePresenter;
 import com.dataoke.client.ui.detail.contract.DetailContract;
 import com.dataoke.client.ui.detail.presenter.DetailPresenter;
+import com.dataoke.client.ui.home.SearchActivity;
+import com.dataoke.client.ui.personal.HistoryActivity;
+import com.dataoke.client.ui.personal.ServiceActivity;
 import com.dataoke.client.utils.ALibcUtil;
 import com.dataoke.client.utils.DensityUtil;
 import com.dataoke.client.utils.DividerGridItemDecoration;
+import com.dataoke.client.utils.ShareUtil;
 import com.dataoke.client.utils.StringUtil;
 import com.dataoke.client.utils.TitleUtil;
 import com.google.android.flexbox.FlexboxLayout;
 
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -78,6 +89,7 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
     private MainGoodsAdapter goodsAdapter;
     private Bundle noticeBundle;
     private boolean isNotice = false;
+    private PopupWindow popupWindow;
 
     public static void startDetailActivity(Context context, String goodsId) {
         Intent intent = new Intent(context, DetailActivity.class);
@@ -144,6 +156,8 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
                     rlTopMainTitle.getBackground().setAlpha(0);
                     tvTitle.setAlpha(0);
                     ivBack.setImageDrawable(ContextCompat.getDrawable(DetailActivity.this, R.drawable.back_icon));
+                    ivMore.setImageDrawable(ContextCompat.getDrawable(DetailActivity.this, R.drawable.icon_title_more_white));
+
                 } else if (scrollY < titleHeight) {
                     float scale = (float) scrollY / titleHeight;
                     int mAlpha = (int) (255 * scale);
@@ -154,6 +168,7 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
                     rlTopMainTitle.getBackground().setAlpha(255);
                     tvTitle.setAlpha(1);
                     ivBack.setImageDrawable(ContextCompat.getDrawable(DetailActivity.this, R.drawable.icon_title_back_black));
+                    ivMore.setImageDrawable(ContextCompat.getDrawable(DetailActivity.this, R.drawable.icon_title_more_black));
                 }
             }
         });
@@ -228,6 +243,64 @@ public class DetailActivity extends BaseActivity<DetailPresenter> implements Det
                 ALibcUtil.showDetail(DetailActivity.this, goodsId, true);
             }
         });
+
+        ivMore.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showPopWindow(DetailActivity.this);
+            }
+        });
+    }
+
+    private void showPopWindow(Context context) {
+        if (popupWindow == null) {
+            View contentView = LayoutInflater.from(DetailActivity.this).inflate(R.layout.popwindow_layout, null);
+            RecyclerView recyclerView = contentView.findViewById(R.id.recyclerView_pop);
+            recyclerView.setLayoutManager(new LinearLayoutManager(context));
+            List<String> data = Arrays.asList("首页", "搜索", "浏览记录", "客服服务", "分享");
+            PopWindowAdapter popWindowAdapter = new PopWindowAdapter(R.layout.item_popwindow, data);
+            recyclerView.setAdapter(popWindowAdapter);
+            popupWindow = new PopupWindow(contentView, DensityUtil.dip2px(150), ViewGroup.LayoutParams.WRAP_CONTENT);
+            popupWindow.setOutsideTouchable(false);
+            popupWindow.setFocusable(true);
+
+            popWindowAdapter.setOnItemClickListener(new BaseQuickAdapter.OnItemClickListener() {
+                @Override
+                public void onItemClick(BaseQuickAdapter adapter, View view, int position) {
+                    if (position == 0) {
+                        MainActivity.startMainActivity(context);
+                    } else if (position == 1) {
+                        SearchActivity.startSearchActivity(context);
+                    } else if (position == 2) {
+                        HistoryActivity.startHistoryActivity(context);
+                    } else if (position == 3) {
+                        ServiceActivity.startServiceActivity(context);
+                    } else if (position == 4) {
+                        ShareUtil.shareText(context, "分享给", "小淘宝下载地址：www.baidu.com");
+                    }
+                    popupWindow.dismiss();
+                }
+            });
+
+        }
+        if (popupWindow.isShowing()) {
+            popupWindow.dismiss();
+        } else {
+            popupWindow.showAsDropDown(ivMore);
+        }
+    }
+
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            if (popupWindow != null) {
+                if (popupWindow.isShowing()) {
+                    popupWindow.dismiss();
+                }
+            }
+        }
+        return super.onKeyDown(keyCode, event);
     }
 
     @NonNull

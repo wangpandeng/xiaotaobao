@@ -28,6 +28,7 @@ import com.dataoke.client.model.response.CommonGoodsResponse;
 import com.dataoke.client.model.response.SearchHotTagResponse;
 import com.dataoke.client.ui.base.BaseActivity;
 import com.dataoke.client.ui.base.BasePresenter;
+import com.dataoke.client.ui.detail.DetailActivity;
 import com.dataoke.client.ui.home.contract.SearchContract;
 import com.dataoke.client.ui.home.presenter.SearchPresenter;
 import com.dataoke.client.utils.DensityUtil;
@@ -89,7 +90,6 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements Sea
     LinearLayout mainParentView;
     @BindView(R.id.iv_clear)
     ImageView ivClear;
-    private List<CommonGoodsResponse.CommonGoods> searchDataList;
     private DividerGridItemDecoration gridItemDecor;
     private DividerItemDecoration linearItemDecor;
     private GridLayoutManager gridLayoutManager;
@@ -125,6 +125,13 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements Sea
         linearItemDecor = new DividerItemDecoration(SearchActivity.this, DividerItemDecoration.VERTICAL);
         linearItemDecor.setDrawable(ContextCompat.getDrawable(SearchActivity.this, R.drawable.shape_bg_gray_line));
         linearLayoutManager = new LinearLayoutManager(SearchActivity.this);
+
+
+        multiGoodsAdapter = new MultiGoodsAdapter(null, this);
+        recyclerView.setLayoutManager(gridLayoutManager);
+        recyclerView.addItemDecoration(gridItemDecor);
+        recyclerView.setAdapter(multiGoodsAdapter);
+
 
         mPresenter.getHotSearchTagData();
 
@@ -215,6 +222,13 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements Sea
                 etSearch.setText("");
             }
         });
+
+        multiGoodsAdapter.setOnItemClick(new MultiGoodsAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(View itemView, int position, CommonGoodsResponse.CommonGoods itemData) {
+                DetailActivity.startDetailActivity(SearchActivity.this, itemData.goods_id);
+            }
+        });
     }
 
     @Override
@@ -276,11 +290,7 @@ public class SearchActivity extends BaseActivity<SearchPresenter> implements Sea
 
     @Override
     public void setSearchData(CommonGoodsResponse searchData) {
-        searchDataList = searchData.data;
-        multiGoodsAdapter = new MultiGoodsAdapter(searchDataList, this);
-        recyclerView.setLayoutManager(gridLayoutManager);
-        recyclerView.addItemDecoration(gridItemDecor);
-        recyclerView.setAdapter(multiGoodsAdapter);
+        multiGoodsAdapter.setNewData(searchData.data);
     }
 
     @Override

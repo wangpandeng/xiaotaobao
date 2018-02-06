@@ -12,7 +12,8 @@
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/nestedScrollView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginBottom="@dimen/dp50">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -122,17 +123,22 @@
 
     <include layout="@layout/title_top_layout" />
 
-
-    <TextView
-        android:id="@+id/tv_buy"
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/dp40"
+        android:layout_height="@dimen/dp50"
         android:layout_gravity="bottom"
-        android:layout_margin="@dimen/dp5"
-        android:background="@drawable/selector_buy"
-        android:gravity="center"
-        android:text="领券购买"
-        android:textColor="@color/colorWhite"
-        android:textSize="@dimen/text_size_18"
-        android:visibility="visible" />
+        android:background="@color/colorWhite">
+
+        <TextView
+            android:id="@+id/tv_buy"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dp40"
+            android:layout_margin="@dimen/dp5"
+            android:background="@drawable/selector_buy"
+            android:gravity="center"
+            android:text="领券购买"
+            android:textColor="@color/colorWhite"
+            android:textSize="@dimen/text_size_18"
+            android:visibility="visible" />
+    </FrameLayout>
 </FrameLayout>
