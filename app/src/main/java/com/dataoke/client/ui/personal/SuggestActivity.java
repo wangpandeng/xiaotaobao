@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.dataoke.client.R;
 import com.dataoke.client.ui.base.BaseActivity;
 import com.dataoke.client.ui.base.BasePresenter;
+import com.dataoke.client.utils.TitleUtil;
 
 import butterknife.BindView;
 import butterknife.OnClick;
@@ -40,7 +41,8 @@ public class SuggestActivity extends BaseActivity {
 
     @Override
     protected void onActivityCreate(Bundle savedInstanceState) {
-
+        TitleUtil.setTitle(this, "意见反馈");
+        TitleUtil.setTitleBackListener(this);
     }
 
     @Override

@@ -44,8 +44,7 @@
         android:ellipsize="end"
         android:gravity="left|top"
         android:hint="感谢您宝贵的意见"
-        android:maxLength="200"
-        android:maxLines="1"
+        android:maxLength="400"
         android:paddingLeft="@dimen/dp12"
         android:paddingRight="@dimen/dp12"
         android:textSize="@dimen/text_size_14" />
