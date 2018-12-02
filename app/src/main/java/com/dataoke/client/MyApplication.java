@@ -6,6 +6,7 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.support.multidex.MultiDex;
+import android.util.Log;
 
 import com.alibaba.baichuan.android.trade.AlibcTradeSDK;
 import com.alibaba.baichuan.android.trade.callback.AlibcTradeInitCallback;
@@ -31,11 +32,12 @@ import java.util.LinkedList;
 public class MyApplication extends Application implements Application.ActivityLifecycleCallbacks {
     public static MyApplication sApplication;
     public static LinkedList<Activity> activities;
+
     @Override
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
-
+        Log.i("FIRST TEST1", "test1");
     }
 
     @Override
@@ -138,6 +140,7 @@ public class MyApplication extends Application implements Application.ActivityLi
     public void onActivityDestroyed(Activity activity) {
         activities.remove(activity);
     }
+
     @Override
     public void onTerminate() {
         super.onTerminate();
