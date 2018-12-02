@@ -1,0 +1,59 @@
+[33mcommit 9a39bbb6b0ff1a80db7e7c912b2cff2220268470[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: wangpandeng <wangpandeng0527@163.com>
+Date:   Sun Dec 2 18:06:30 2018 +0800
+
+    ''test1
+
+[33mcommit 291393ca9d6d6f1a21bed22226ad017a0ae38b20[m
+Author: wangpandeng <980431150@qq.com>
+Date:   Wed Feb 7 14:27:13 2018 +0800
+
+    Update README.md
+
+[33mcommit bef613903b32ecca9500818774928327cc87fb95[m
+Author: wangpandeng <980431150@qq.com>
+Date:   Wed Feb 7 14:26:41 2018 +0800
+
+    Create README.md
+
+[33mcommit eb079da4003fef2750135fdd4203c0744a4ad96e[m
+Author: wangpandeng <wangpandeng0527@163.com>
+Date:   Wed Feb 7 14:25:08 2018 +0800
+
+    '修改意见反馈页面'
+
+[33mcommit 2b80078b5eca5dc339d1f85b60904372ddf8fe50[m
+Author: wangpandeng <wangpandeng0527@163.com>
+Date:   Tue Feb 6 18:38:31 2018 +0800
+
+    '完善意见返回页面'
+
+[33mcommit fe649f9cb0dae24f5363d3505034dc78dbce6a38[m
+Author: wangpandeng <wangpandeng0527@163.com>
+Date:   Tue Feb 6 18:37:59 2018 +0800
+
+    '添加详情页功能，分享，历史地址，意见反馈，'
+
+[33mcommit daab2d38c4f3e5494f28eb61107d96fb5349ca75[m
+Author: wangpandeng <wangpandeng0527@163.com>
+Date:   Mon Feb 5 19:23:18 2018 +0800
+
+    '解决滑动冲突'
+
+[33mcommit c63858c6ed229ddbe9ab3912533b5e5d8da4d2e1[m
+Author: wangpandeng <wangpandeng0527@163.com>
+Date:   Mon Feb 5 17:30:48 2018 +0800
+
+    修改首页fragment布局
+
+[33mcommit 07671188b4a3b46c0895382186c63c92f6a7ab6a[m
+Author: wangpandeng <wangpandeng0527@163.com>
+Date:   Mon Feb 5 17:03:15 2018 +0800
+
+    '完善app'
+
+[33mcommit 540a474d82ab9a1775b8fd84817157852f27a238[m
+Author: wangpandeng <wangpandeng0527@163.com>
+Date:   Sun Feb 4 23:55:32 2018 +0800
+
+    第一次提交
