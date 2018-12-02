@@ -35,6 +35,7 @@ public class MyApplication extends Application implements Application.ActivityLi
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
+
     }
 
     @Override
