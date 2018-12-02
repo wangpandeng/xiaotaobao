@@ -37,7 +37,7 @@ public class MyApplication extends Application implements Application.ActivityLi
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
-        Log.i("FIRST TEST1", "test1");
+        Log.i("FIRST TEST2", "test2");
     }
 
     @Override
