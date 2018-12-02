@@ -37,8 +37,6 @@ public class MyApplication extends Application implements Application.ActivityLi
     protected void attachBaseContext(Context base) {
         super.attachBaseContext(base);
         MultiDex.install(this);
-        Log.i("FIRST TEST3", "test3");
-        System.out.print("做一套工作区的撤退Test");
     }
 
     @Override
